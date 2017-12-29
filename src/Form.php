@@ -348,6 +348,18 @@ class Form
         return $values;
     }
 
+    public function getValue($elementName, $real = false)
+    {
+        $element = $this->getElement($elementName);
+
+        return $real ? $element->getRealValue() : $element->getValue();
+    }
+
+    public function getRealValue($elementName)
+    {
+        return $this->getValue($elementName, true);
+    }
+
     public function getElements()
     {
         return $this->elements;
